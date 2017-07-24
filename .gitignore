@@ -16,4 +16,10 @@
 /node_modules
 /yarn-error.log
 
+# Ignore environmental variables
+.env
+
+# Ignore simplecov files
+/coverage/*
+
 .byebug_history
