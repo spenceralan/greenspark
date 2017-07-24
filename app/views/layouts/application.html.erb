@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>greenspark</title>
     <%= csrf_meta_tags %>
 
@@ -9,6 +11,8 @@
   </head>
 
   <body>
+
+    <%= render 'layouts/header' %>
 
     <% if notice %>
       <div class="container notices">
