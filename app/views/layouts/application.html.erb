@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Greenspark</title>
+    <title>greenspark</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,22 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <% if notice %>
+      <div class="container notices">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="container notices">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
