@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # project specific gems
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
+gem 'mailgun-ruby', '~>1.1.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do
