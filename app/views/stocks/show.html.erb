@@ -9,6 +9,8 @@
 <%= link_to "Add Transaction", new_stock_transaction_path(@stock), class: "btn btn-default" %>
 
 <% @stock.transactions.each do |transaction| %>
-  <h5><%= transaction.date %></h5>
-  <h4><%= transaction.quantity %> @ <%= transaction.price %></h4>
+  <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
+    <h4><%= transaction.date %></h5>
+    <h5><%= transaction.quantity %> @ <%= number_to_currency(transaction.price) %></h4>
+  <% end %>
 <% end %>
