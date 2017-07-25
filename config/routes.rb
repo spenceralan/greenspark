@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
 
+  resources :stocks do
+    resources :transactions
+  end
+
   root "home#index"
 
 end
