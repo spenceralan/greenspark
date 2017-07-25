@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170725160555) do
     t.string "name"
     t.string "description"
     t.string "exchange"
+    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

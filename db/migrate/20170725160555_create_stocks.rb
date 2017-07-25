@@ -6,6 +6,8 @@ class CreateStocks < ActiveRecord::Migration[5.1]
       t.string :description
       t.string :exchange
 
+      t.uuid :user_id
+
       t.timestamps
     end
   end
