@@ -6,3 +6,9 @@
 
 
 <h2>Transactions</h2>
+<%= link_to "Add Transaction", new_stock_transaction_path(@stock), class: "btn btn-default" %>
+
+<% @stock.transactions.each do |transaction| %>
+  <h5><%= transaction.date %></h5>
+  <h4><%= transaction.quantity %> @ <%= transaction.price %></h4>
+<% end %>
