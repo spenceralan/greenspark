@@ -37,6 +37,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'kaminari'
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
