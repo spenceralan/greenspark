@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.order(:name).page params[:page]
+    @stocks = Stock.order(:symbol).page params[:page]
   end
 
   def show
