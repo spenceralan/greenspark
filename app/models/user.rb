@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :login
 
+  has_many :stocks, dependent: :destroy
+
   devise :database_authenticatable,
     :registerable,
     :recoverable,
