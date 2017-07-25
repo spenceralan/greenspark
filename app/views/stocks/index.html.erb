@@ -1,1 +1,7 @@
 <h2>Your Portfolio</h2>
+<br>
+<%= link_to "Add Stock", new_stock_path, class: "btn btn-default" %>
+<br>
+<% current_user.stocks.each do |stock| %>
+  <h4><%= stock.symbol %></h4>
+<% end %>
