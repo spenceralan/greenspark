@@ -1,0 +1,26 @@
+<%= render "layouts/errors", :object => @transaction %>
+
+<%= form_for [@stock, @transaction] do |f| %>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :trade_type %>
+    <%= f.text_field :trade_type, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: "form-control" %>
+  </div>
+
+  <%= f.submit class: "btn btn-default" %>
+<% end %>

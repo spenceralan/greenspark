@@ -1,0 +1,6 @@
+<h2>Edit Transaction</h2>
+
+<%= render "form" %>
+
+<br>
+<%= link_to "Delete Transaction", stock_transaction_path(@transaction.stock, @transaction), data: {method: :delete}, class: "btn btn-default" %>
