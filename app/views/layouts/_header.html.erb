@@ -1,8 +1,13 @@
 <div id="header">
   <div class="jumbotron">
     <div class="container">
-      <h1><%= link_to "greenspark", root_path %></h1>
-      <p><%= link_to "be the spark", root_path %></p>
+      <% if user_signed_in? %>
+        <h1><%= link_to "greenspark", stocks_path %></h1>
+        <p><%= link_to "be the spark", stocks_path %></p>
+      <% else %>
+        <h1><%= link_to "greenspark", root_path %></h1>
+        <p><%= link_to "be the spark", root_path %></p>
+      <% end %>
     </div>
   </div>
 </div>
