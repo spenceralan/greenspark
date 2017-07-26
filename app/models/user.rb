@@ -24,6 +24,9 @@ class User < ApplicationRecord
 
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
+  scope :active_users, -> { where("last_sign_in_at > ?", DateTime.now - 1)}
+  scope :inactive_users, -> { where("last_sign_in_at < ?", DateTime.now - 1)}
+
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
