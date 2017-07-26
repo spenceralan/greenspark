@@ -1,6 +1,6 @@
 <div class="well">
   <h2><%= @stock.name %></h2>
-  <h3><%= number_to_currency(current_price(@stock)) %></h3>
+  <h3><%= number_to_currency(@stock.last_updated_price) %></h3>
   <p><%= @stock.description %></p>
 </div>
 

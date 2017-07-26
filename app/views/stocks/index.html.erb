@@ -7,7 +7,7 @@
   <div class="stock-link">
     <% @stocks.each do |stock| %>
     <br>
-    <h4><%= link_to "#{stock.symbol} ● #{number_to_currency(current_price(stock))}", stock_path(stock) %></h4>
+    <h4><%= link_to "#{stock.symbol} ● #{number_to_currency(stock.last_updated_price)}", stock_path(stock) %></h4>
     <% end %>
   </div>
 </div>
