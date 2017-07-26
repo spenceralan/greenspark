@@ -21,6 +21,12 @@ class Stock < ApplicationRecord
 
   end
 
+  def update_price
+    response = api_call
+    self.last_updated_price = latest_price(response)
+    self.last_updated_time = DateTime.now
+  end
+
   def api_call
     response = RestClient.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{self.symbol}&interval=1min&apikey=#{ENV.fetch('ALPHA_VANTAGE')}")
     JSON.parse(response)
