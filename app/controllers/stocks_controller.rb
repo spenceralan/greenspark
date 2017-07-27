@@ -1,14 +1,14 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.order(:symbol).page params[:page]
+    @stocks = current_user.stocks.order(:symbol).page params[:page]
   end
 
   def show
-    @stock = Stock.find(params[:id])
+    @stock = current_user.stocks.find(params[:id])
   end
 
   def new
-    @stock = Stock.new
+    @stock = current_user.stocks.new
     render :new
   end
 
@@ -23,11 +23,11 @@ class StocksController < ApplicationController
   end
 
   def edit
-    @stock = Stock.find(params[:id])
+    @stock = current_user.stocks.find(params[:id])
   end
 
   def update
-    @stock = Stock.find(params[:id])
+    @stock = current_user.stocks.find(params[:id])
     if @stock.update(stock_params)
       flash[:notice] = "The stock has been updated."
       redirect_to stock_path(@stock)
@@ -37,7 +37,7 @@ class StocksController < ApplicationController
   end
 
   def destroy
-    Stock.find(params[:id]).destroy
+    current_user.stocks.find(params[:id]).destroy
     flash[:notice] = "The stock has been deleted."
     redirect_to root_path
   end
