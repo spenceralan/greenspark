@@ -9,6 +9,27 @@ class Stock < ApplicationRecord
 
   validate :validate_symbol
 
+
+  def cost
+    transactions.sum(:total)
+  end
+
+  def quantity
+    transactions.sum(:quantity)
+  end
+
+  def value
+    quantity * last_updated_price
+  end
+
+  def change
+    return 0 if cost == 0
+    percent = ((value - cost) / cost) * 100
+    rounded = percent.round(2)
+  end
+
+private
+
   def validate_symbol
     response = api_call
 
@@ -39,4 +60,6 @@ class Stock < ApplicationRecord
   def valid_symbol?(response)
     response.fetch("Time Series (1min)", false)
   end
+
+
 end
