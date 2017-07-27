@@ -1,9 +1,14 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  DEFAULT_INCREMENTAL = 100.00
+
   attr_accessor :login
 
   has_many :stocks, dependent: :destroy
+
+  after_initialize :init
 
   after_create :default_stocks
 
@@ -42,7 +47,12 @@ class User < ApplicationRecord
       where(conditions.to_hash).first
     end
   end
+
 private
+
+  def init
+    self.incremental ||= DEFAULT_INCREMENTAL
+  end
 
   def default_stocks
     self.stocks.create([
