@@ -29,7 +29,7 @@ class Algorithm
   end
 
   def change_goal
-    self.goal += user.incremenal
+    self.goal += user.incremental
     change_goal if increase_goal?
   end
 
@@ -45,14 +45,12 @@ class Algorithm
     stocks_less_than_goal.each do | stock |
       value = stock.value
       how_many_to_buy = {stock: stock, quantity: 0}
-      while value < goal
-        while how_many_to_buy[:stock].last_updated_price * how_many_to_buy[:quantity] < user_budget
-          user_budget -= stock.last_updated_price
-          value += stock.last_updated_price
-          how_many_to_buy[:quantity] += 1
-        end
+      while how_many_to_buy[:stock].last_updated_price < user_budget && value < goal
+        user_budget -= stock.last_updated_price
+        value += stock.last_updated_price
+        how_many_to_buy[:quantity] += 1
       end
-      stocks_to_purchase.push(how_many_to_buy)
+      stocks_to_purchase.push(how_many_to_buy) if how_many_to_buy[:quantity] > 0
     end
     stocks_to_purchase
   end
