@@ -25,7 +25,7 @@ class Stock < ApplicationRecord
   def change
     return 0 if cost == 0
     percent = ((value - cost) / cost) * 100
-    rounded = percent.round(2)
+    percent.round(2)
   end
 
 private
