@@ -39,10 +39,15 @@ class Algorithm
     end
   end
 
+  def sorted_by_performance(stocks)
+    stocks.sort_by { |stock| stock.change }
+  end
+
   def stocks_within_budget
     user_budget = budget
     stocks_to_purchase = []
-    stocks_less_than_goal.each do | stock |
+    sorted_stocks = sorted_by_performance(stocks_less_than_goal)
+    sorted_stocks.each do | stock |
       value = stock.value
       how_many_to_buy = {stock: stock, quantity: 0}
       while how_many_to_buy[:stock].last_updated_price < user_budget && value < goal
