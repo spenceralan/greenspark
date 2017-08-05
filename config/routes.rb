@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
 
+  post "stocks/to_buy", to: "stocks#to_buy", as: :stock_to_buy
+
   resources :stocks do
     resources :transactions
   end
