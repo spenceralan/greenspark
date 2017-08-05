@@ -45,10 +45,10 @@ class StocksController < ApplicationController
   def to_buy
     budget = stock_to_buy_params.fetch(:budget).to_f
     @stocks_to_buy = Algorithm.new(current_user, budget)
-    render :to_buy
+    respond_to do |format|
+      format.js
+    end
   end
-
-
 
 private
   def stock_params
