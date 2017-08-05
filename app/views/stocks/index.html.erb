@@ -4,14 +4,17 @@
 
     <div class="col-sm-6">
       <h2>Your Budget</h2>
+      <br>
       <%= form_tag stock_to_buy_path, remote: true do %>
         <div class="form-group">
-          <%= text_field_tag :budget, nil,class: "form-control", placeholder: "How much would you like to spend today?" %>
+          <%= number_field_tag :budget, nil,class: "form-control", placeholder: "How much would you like to spend today?" %>
         </div>
         <%= submit_tag 'Submit', class: "btn btn-default" %>
       <% end %>
 
-      <div id="stocks_to_buy_partial"></div>
+      <div id="stocks_to_buy_partial">
+        <h2>Tell us your budget and we will tell you what to buy!</h2>
+      </div>
     </div>
 
     <div class="col-sm-6">
