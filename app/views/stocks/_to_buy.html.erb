@@ -1,8 +1,21 @@
 <h2>Stocks To Purchase with <%= number_to_currency(@stocks_to_buy.budget)%></h2>
 
-<% @stocks_to_buy.stocks_within_budget.each do | stock | %>
-  <h3><%= stock.fetch(:stock).name %></h3>
-  <h4><%= stock.fetch(:quantity) %> @ <%= number_to_currency(stock.fetch(:stock).last_updated_price) %><h4>
+<hr>
+
+<% if @stocks_to_buy.nil? || @stocks_to_buy.stocks_within_budget.empty? %>
+
+  <h3>Nothing fit within your budget today.</h3>
+  <p>Try increasing your budget or coming back when you can!</p>
+
+<% else %>
+
+  <% @stocks_to_buy.stocks_within_budget.each do | stock | %>
+    <h3><%= stock.fetch(:stock).name %></h3>
+    <h4><%= stock.fetch(:quantity) %> @ <%= number_to_currency(stock.fetch(:stock).last_updated_price) %><h4>
+  <% end %>
+
 <% end %>
+
+<hr>
 
 <h3>Total <%= number_to_currency(@stocks_to_buy.total) %></h3>
