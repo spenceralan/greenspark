@@ -42,7 +42,11 @@ class StocksController < ApplicationController
     redirect_to root_path
   end
 
-
+  def to_buy
+    budget = stock_to_buy_params.fetch(:budget).to_f
+    @stocks_to_buy = Algorithm.new(current_user, budget)
+    render :to_buy
+  end
 
 
 
@@ -51,4 +55,7 @@ private
     params.require(:stock).permit(:name, :symbol, :description)
   end
 
+  def stock_to_buy_params
+    params.permit(:budget)
+  end
 end
