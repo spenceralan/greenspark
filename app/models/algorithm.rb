@@ -2,6 +2,7 @@ class Algorithm
   attr_accessor :user
   attr_accessor :budget
   attr_accessor :goal
+  attr_accessor :total
 
   def initialize(user, budget)
     self.user = user
@@ -57,6 +58,7 @@ class Algorithm
       end
       stocks_to_purchase.push(how_many_to_buy) if how_many_to_buy[:quantity] > 0
     end
+    self.total = budget - user_budget
     stocks_to_purchase
   end
 
