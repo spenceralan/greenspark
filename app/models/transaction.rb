@@ -6,4 +6,8 @@ class Transaction < ApplicationRecord
   def update_total
     self.total = self.price * self.quantity
   end
+
+  def default_price
+    price || stock.last_updated_price
+  end
 end
