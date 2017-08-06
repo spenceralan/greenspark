@@ -2,6 +2,8 @@ class Stock < ApplicationRecord
   belongs_to :user
   has_many :transactions, dependent: :destroy
 
+  before_save :upcase_symbol
+
   validates :symbol,
     :name,
     :description,
@@ -61,5 +63,8 @@ private
     response.fetch("Time Series (1min)", false)
   end
 
+  def upcase_symbol
+    self.symbol = symbol.upcase
+  end
 
 end
