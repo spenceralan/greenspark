@@ -4,7 +4,7 @@
 
   <div class="form-group">
     <%= f.label :price %>
-    <%= f.text_field :price, value: @transaction.default_price, class: "form-control" %>
+    <%= f.text_field :price, value: format_number(@transaction.default_price), class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <%= f.label :trade_type %>
-    <%= f.select :trade_type, [["Buy", "buy"], ["Sell", "sell"]], {}, class: "form-control" %>
+    <%= f.select :trade_type, transaction_select_options(Transaction::TRANSACTION_TYPES), {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
