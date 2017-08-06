@@ -1,6 +1,6 @@
 module TransactionsHelper
 
-  def currentDate
+  def current_date
     Date.today.strftime("%Y-%m-%d")
   end
 
