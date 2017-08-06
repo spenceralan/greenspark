@@ -4,7 +4,7 @@
 
   <div class="form-group">
     <%= f.label :price %>
-    <%= f.text_field :price, class: "form-control" %>
+    <%= f.text_field :price, value: @transaction.default_price, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -14,12 +14,12 @@
 
   <div class="form-group">
     <%= f.label :trade_type %>
-    <%= f.text_field :trade_type, class: "form-control" %>
+    <%= f.select :trade_type, [["Buy", "buy"], ["Sell", "sell"]], {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :date %>
-    <%= f.date_field :date, value: currentDate, class: "form-control" %>
+    <%= f.date_field :date, value: current_date, class: "form-control" %>
   </div>
 
   <%= f.submit class: "btn btn-default" %>
