@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
   end
 
   def update
+    @stock = current_user.stocks.find(params.fetch(:stock_id))
     @transaction = @stock.transactions.find(params[:id])
     if @transaction.update(transaction_params)
       flash[:notice] = "The transaction has been updated."
