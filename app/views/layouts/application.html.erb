@@ -5,7 +5,7 @@
 
     <title>greenspark</title>
 
-  <%= favicon_link_tag 'favicon.png' %>
+    <%= favicon_link_tag 'favicon.png' %>
 
     <%= csrf_meta_tags %>
 
@@ -15,7 +15,9 @@
 
   <body>
 
-    <%= render 'layouts/header' %>
+    <% unless current_page?(root_path) %>
+      <%= render 'layouts/header' %>
+    <% end %>
 
     <%= render 'layouts/login_paths'%>
 
@@ -31,9 +33,9 @@
       </div>
     <% end %>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+
+    <%= yield %>
+
 
   </body>
 </html>
