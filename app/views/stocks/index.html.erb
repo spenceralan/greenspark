@@ -1,35 +1,37 @@
-<div id="stocks-index">
- 
-  <h2>Your Budget</h2>
-  <br>
-  <%= form_tag stock_to_buy_path, remote: true do %>
-    <div class="form-group">
-      <%= number_field_tag :budget, nil,class: "form-control", placeholder: "How much would you like to spend today?" %>
-    </div>
-    <%= submit_tag 'Submit', class: "btn btn-default" %>
-  <% end %>
-
-  <div id="stocks_to_buy_partial">
-    <h2>Tell us your budget and we will tell you what to buy!</h2>
-  </div>
-
-  <hr>
-
-  <h2>Your Portfolio</h2>
-  <br>
-  <%= link_to "Add Stock", new_stock_path, class: "btn btn-default" %>
-  <br>
-
-  <div class="stock-link">
-    <% @stocks.each do |stock| %>
-      <div class="stock-box">
-        <h4><%= link_to "#{stock.symbol} ● #{number_to_currency(stock.last_updated_price)}", stock_path(stock) %></h4>
-        <h5>Value: <%= number_to_currency(stock.value) %></h5>
-        <h5>Quantity: <%= stock.quantity %></h5>
-        <h5>Cost: <%= number_to_currency(stock.cost) %></h5>
-        <h5>Change: <%= stock.change %>%</h5>
+<div class="container">
+  <div id="stocks-index">
+  
+    <h2>Your Budget</h2>
+    <br>
+    <%= form_tag stock_to_buy_path, remote: true do %>
+      <div class="form-group">
+        <%= number_field_tag :budget, nil,class: "form-control", placeholder: "How much would you like to spend today?" %>
       </div>
+      <%= submit_tag 'Submit', class: "btn btn-default" %>
     <% end %>
-  </div>
 
+    <div id="stocks_to_buy_partial">
+      <h2>Tell us your budget and we will tell you what to buy!</h2>
+    </div>
+
+    <hr>
+
+    <h2>Your Portfolio</h2>
+    <br>
+    <%= link_to "Add Stock", new_stock_path, class: "btn btn-default" %>
+    <br>
+
+    <div class="stock-link">
+      <% @stocks.each do |stock| %>
+        <div class="stock-box">
+          <h4><%= link_to "#{stock.symbol} ● #{number_to_currency(stock.last_updated_price)}", stock_path(stock) %></h4>
+          <h5>Value: <%= number_to_currency(stock.value) %></h5>
+          <h5>Quantity: <%= stock.quantity %></h5>
+          <h5>Cost: <%= number_to_currency(stock.cost) %></h5>
+          <h5>Change: <%= stock.change %>%</h5>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>

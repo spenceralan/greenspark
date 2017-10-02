@@ -1,20 +1,22 @@
-<div class="well">
-  <h2><%= @stock.name %></h2>
-  <h3><%= number_to_currency(@stock.last_updated_price) %></h3>
-  <p><%= @stock.description %></p>
-  <h5>Value: <%= number_to_currency(@stock.value) %></h5>
-  <h5>Quantity: <%= @stock.quantity %></h5>
-  <h5>Cost: <%= number_to_currency(@stock.cost) %></h5>
-  <h5>Change: <%= @stock.change %>%</h5>
-</div>
+<div class="container">
+  <div class="well">
+    <h2><%= @stock.name %></h2>
+    <h3><%= number_to_currency(@stock.last_updated_price) %></h3>
+    <p><%= @stock.description %></p>
+    <h5>Value: <%= number_to_currency(@stock.value) %></h5>
+    <h5>Quantity: <%= @stock.quantity %></h5>
+    <h5>Cost: <%= number_to_currency(@stock.cost) %></h5>
+    <h5>Change: <%= @stock.change %>%</h5>
+  </div>
 
 
-<h2>Transactions</h2>
-<%= link_to "Add Transaction", new_stock_transaction_path(@stock), class: "btn btn-default" %>
+  <h2>Transactions</h2>
+  <%= link_to "Add Transaction", new_stock_transaction_path(@stock), class: "btn btn-default" %>
 
-<% @stock.transactions.each do |transaction| %>
-  <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
-    <h4><%= transaction.date %></h5>
-    <h5><%= transaction.quantity %> @ <%= number_to_currency(transaction.price) %></h4>
+  <% @stock.transactions.each do |transaction| %>
+    <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
+      <h4><%= transaction.date %></h5>
+      <h5><%= transaction.quantity %> @ <%= number_to_currency(transaction.price) %></h4>
+    <% end %>
   <% end %>
-<% end %>
+</div>
