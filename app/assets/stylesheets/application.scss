@@ -15,10 +15,17 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Scope+One');
+ @import url('https://fonts.googleapis.com/css?family=BioRhyme');
 
 body {
   background-color: #333;
   color: #00cc66;
+  font-family: 'Scope One', serif;
+
+  h1 {
+    font-family: 'BioRhyme', serif;
+  }
 }
 
 .form-control {
