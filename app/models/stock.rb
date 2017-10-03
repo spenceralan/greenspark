@@ -30,6 +30,12 @@ class Stock < ApplicationRecord
     percent.round(2)
   end
 
+  def update_price
+    response = api_call
+    self.last_updated_price = latest_price(response)
+    self.last_updated_time = DateTime.now
+  end
+
 private
 
   def validate_symbol
@@ -42,12 +48,6 @@ private
       errors.add(:symbol, :invalid)
     end
 
-  end
-
-  def update_price
-    response = api_call
-    self.last_updated_price = latest_price(response)
-    self.last_updated_time = DateTime.now
   end
 
   def api_call
