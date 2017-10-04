@@ -4,15 +4,27 @@
     text-decoration: none;
   }
 
+  .btn-default {
+    color: #333;
+  }
+
   .stock-link {
     display: flex;
     flex-wrap: wrap;
   }
 
   .stock-box {
-    margin: 20px 0px 20px 0px;
-    flex-basis: 50%;
+    color: #333;
+    margin: 20px;
+    flex-basis: 90%;
     white-space: nowrap;
+  }
+
+  @media only screen
+    and (min-width: 430px) {
+    .stock-box {
+      flex-basis: 40%;
+    }
   }
 
 }
