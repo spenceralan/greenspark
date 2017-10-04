@@ -39,7 +39,7 @@ class StocksController < ApplicationController
   def destroy
     current_user.stocks.find(params[:id]).destroy
     flash[:notice] = "The stock has been deleted."
-    redirect_to root_path
+    redirect_to stocks_path
   end
 
   def to_buy
