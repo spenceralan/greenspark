@@ -20,11 +20,16 @@
     <h2>Transactions</h2>
     <%= link_to "Add Transaction", new_stock_transaction_path(@stock), class: "btn btn-default" %>
 
-    <% @stock.transactions.each do |transaction| %>
-      <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
-        <h4><%= transaction.date %></h5>
-        <h5><%= transaction.quantity %> @ <%= number_to_currency(transaction.price) %></h4>
+    <div class="stock-transactions">
+      <% @stock.transactions.each do |transaction| %>
+        <div class="well stock-transaction">
+          <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
+            <h4><%= transaction.date %></h4>
+            <p><%= transaction.quantity %> @ <%= number_to_currency(transaction.price) %></p>
+            <p><%= number_to_currency(transaction.total) %></p>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

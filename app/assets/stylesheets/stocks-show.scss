@@ -3,10 +3,37 @@
     position: relative;
   }
 
+  .btn {
+    margin-bottom: 15px;
+  }
+
   .glyphicon {
     color: #dc3545;
     position: absolute;
     top: 5px;
     right: 5px;
+  }
+
+  .stock-transactions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .stock-transaction {
+    color: #333;
+    margin: 2%;
+    flex-basis: 46%;
+    white-space: nowrap;
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+
+  @media only screen
+    and (min-width: 460px) {
+    .stock-transaction {
+      flex-basis: 29%;
+    }
   }
 }
