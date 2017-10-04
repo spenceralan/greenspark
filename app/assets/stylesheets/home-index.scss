@@ -16,17 +16,15 @@
   }
 
   h1 {
-    font-size: 400%;
+    font-size: 300%;
   }
 
   h3 {
-    position: fixed;
-    bottom: 50px;
-    width: 100%;
+    margin-top: 100px;
   }
 
   @media only screen
-    and (min-width: 380px) {
+    and (min-width: 420px) {
     h1 {
       font-size: 500%;
     }
@@ -34,13 +32,13 @@
   @media only screen
     and (min-width: 580px) {
     h1 {
-      font-size: 750%;
+      font-size: 650%;
     }
   }
   @media only screen
     and (min-width: 700px) {
     h1 {
-      font-size: 900%;
+      font-size: 800%;
     }
   }
 }
