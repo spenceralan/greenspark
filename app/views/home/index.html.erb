@@ -1,12 +1,17 @@
 <%= render 'layouts/login_paths'%>
 
 <div id="home-index">
-  <h1>
-    <%= link_to "greenspark", new_user_registration_path %>
-  </h1>
-  <h2>
-    <%= link_to "Start Investing in Your Future Today", new_user_registration_path %>
-  </h2>
+  <% if current_user %>
+    <%= link_to stocks_path do %>
+      <h1>greenspark</h1>
+      <h2>Start Investing in Your Future Today</h2>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <h1>greenspark</h1>
+      <h2>Start Investing in Your Future Today</h2>
+    <% end %>
+  <% end %>
   <h3>
     <%= link_to "What is greenspark?", about_path %>
   </h3>
