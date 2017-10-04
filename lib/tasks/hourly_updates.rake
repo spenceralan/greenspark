@@ -1,10 +1,8 @@
 namespace :hourly_updates do
   desc "TODO"
-  task update_active_users: :environment do
-    User.active_users.each do | user |
-      user.stocks.each do | stock |
-        stock.update_price
-      end
+  task update_tickers: :environment do
+    Ticker.find_each do | ticker |
+      ticker.update_price
     end
   end
 end

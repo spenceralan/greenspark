@@ -8,7 +8,7 @@
           <span class="glyphicon glyphicon-remove"></span>
         <% end %>
       </h2>
-      <h3><%= number_to_currency(@stock.last_updated_price) %></h3>
+      <h3><%= number_to_currency(@stock.ticker.last_updated_price) %></h3>
       <p><%= @stock.description %></p>
       <h5>Value: <%= number_to_currency(@stock.value) %></h5>
       <h5>Quantity: <%= @stock.quantity %></h5>

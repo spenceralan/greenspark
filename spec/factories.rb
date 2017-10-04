@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :ticker do
+    
+  end
 
   factory :user do
     username "testuser"

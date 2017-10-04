@@ -51,9 +51,9 @@ class Algorithm
     sorted_stocks.each do | stock |
       value = stock.value
       how_many_to_buy = {stock: stock, quantity: 0}
-      while how_many_to_buy[:stock].last_updated_price < user_budget && value < goal
-        user_budget -= stock.last_updated_price
-        value += stock.last_updated_price
+      while how_many_to_buy[:stock].ticker.last_updated_price < user_budget && value < goal
+        user_budget -= stock.ticker.last_updated_price
+        value += stock.ticker.last_updated_price
         how_many_to_buy[:quantity] += 1
       end
       stocks_to_purchase.push(how_many_to_buy) if how_many_to_buy[:quantity] > 0
@@ -66,7 +66,7 @@ class Algorithm
     quantity = 0
     cost = 0
     while cost <= goal
-      cost += stock.last_updated_price
+      cost += stock.ticker.last_updated_price
       quantity += 1
     end
     quantity

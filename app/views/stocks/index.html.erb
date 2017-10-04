@@ -25,7 +25,7 @@
       <% @stocks.each do |stock| %>
         <div class="stock-box well">
           <%= link_to stock_path(stock) do %>
-            <h4><%= "#{stock.symbol} ● #{number_to_currency(stock.last_updated_price)}" %></h4>
+            <h4><%= "#{stock.symbol} ● #{number_to_currency(stock.ticker.last_updated_price)}" %></h4>
             <h5>Value: <%= number_to_currency(stock.value) %></h5>
             <h5>Quantity: <%= stock.quantity %></h5>
             <h5>Cost: <%= number_to_currency(stock.cost) %></h5>

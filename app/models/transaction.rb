@@ -16,6 +16,6 @@ class Transaction < ApplicationRecord
   end
 
   def default_price
-    price || stock.last_updated_price
+    price || stock.ticker.last_updated_price
   end
 end
