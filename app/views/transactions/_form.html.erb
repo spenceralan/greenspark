@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <%= f.label :trade_type %>
-    <%= f.select :trade_type, transaction_select_options(Transaction::TRANSACTION_TYPES), {}, class: "form-control" %>
+    <%= f.select :trade_type, transaction_select_options(Transaction::TRANSACTION_TYPES.keys), {}, class: "form-control" %>
   </div>
 
   <div class="form-group">

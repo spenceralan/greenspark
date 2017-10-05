@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004195035) do
+ActiveRecord::Schema.define(version: 20171004233220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20171004195035) do
     t.uuid "stock_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "trade_type"
     t.decimal "total", precision: 12, scale: 2
+    t.integer "trade_type", default: 0
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

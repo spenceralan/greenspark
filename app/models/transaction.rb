@@ -1,6 +1,7 @@
 class Transaction < ApplicationRecord
+  TRANSACTION_TYPES = { buy: 0, sell: 1 }
 
-  TRANSACTION_TYPES = ["buy", "sell"]
+  enum trade_type: TRANSACTION_TYPES
 
   belongs_to :stock
 
@@ -9,7 +10,7 @@ class Transaction < ApplicationRecord
   validates_presence_of :price, :quantity, :date, :trade_type
   validates_numericality_of :price, only_integer: false, allow_blank: true
   validates_numericality_of :quantity, only_integer: true, greater_than: 0, allow_blank: true
-  validates_inclusion_of :trade_type, in: TRANSACTION_TYPES
+  validates_inclusion_of :trade_type, in: Transaction::TRANSACTION_TYPES.keys.map(&:to_s)
 
   def update_total
     self.total = self.price * self.quantity

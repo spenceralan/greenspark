@@ -25,7 +25,7 @@
         <div class="well stock-transaction">
           <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
             <h4><%= transaction.date %></h4>
-            <p><%= transaction.quantity %> @ <%= number_to_currency(transaction.price) %></p>
+            <p><%= "#{transaction.trade_type.capitalize} #{transaction.quantity} @ #{number_to_currency(transaction.price)}" %></p>
             <p><%= number_to_currency(transaction.total) %></p>
           <% end %>
         </div>

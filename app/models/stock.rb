@@ -11,12 +11,20 @@ class Stock < ApplicationRecord
     :description,
     presence: true
 
+  def bought
+    transactions.where(trade_type: "buy")
+  end
+
+  def sold
+    transactions.where(trade_type: "sell")
+  end
+
   def cost
-    transactions.sum(:total)
+    bought.sum(:total) - sold.sum(:total)
   end
 
   def quantity
-    transactions.sum(:quantity)
+    bought.sum(:quantity) - sold.sum(:quantity)
   end
 
   def value
