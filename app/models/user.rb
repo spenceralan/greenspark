@@ -60,12 +60,6 @@ private
         exchange: "NAR",
       },
       {
-        name: "VanEck Vectors Solar Energy ETF",
-        symbol: "KWT",
-        description: "The investment seeks to replicate as closely as possible, before fees and expenses, the price and yield performance of the MVISä Global Solar Energy Index. The fund normally invests at least 80% of its total assets in securities that comprise the fund's benchmark index. The index includes equity securities of companies that generate at least 50% of their revenues from photovoltaic and solar power, solar power equipment/technologies and materials or services to solar power equipment/technologies producers. It is non-diversified.",
-        exchange: "NAR",
-      },
-      {
         name: "First Trust Global Wind Energy ETF",
         symbol: "FAN",
         description: "The investment seeks investment results that correspond generally to the price and yield (before the fund's fees and expenses) of an equity index called the ISE Clean Edge Global Wind Energy Index. The fund will normally invest at least 90% of its net assets (including investment borrowings) in common stocks or in depositary receipts representing securities in the index. The index provides a benchmark for investors interested in tracking public companies throughout the world that are active in the wind energy industry based on analysis of the products and services offered by those companies. The fund is non-diversified.",
