@@ -37,6 +37,13 @@ class Stock < ApplicationRecord
     percent.round(2)
   end
 
+  def transactions_by_date_descending
+    transactions.order("date DESC")
+  end
+
+  def transactions_by_date_ascending
+    transactions.order(:date)
+  end
 private
 
   def upcase_symbol

@@ -21,7 +21,7 @@
     <%= link_to "Add Transaction", new_stock_transaction_path(@stock), class: "btn btn-default" %>
 
     <div class="stock-transactions">
-      <% @stock.transactions.each do |transaction| %>
+      <% @transactions.each do |transaction| %>
         <div class="well stock-transaction">
           <%= link_to edit_stock_transaction_path(@stock, transaction) do %>
             <h4><%= transaction.date %></h4>
