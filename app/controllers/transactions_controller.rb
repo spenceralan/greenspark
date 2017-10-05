@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
   def create
     @stock = current_user.stocks.find(params[:stock_id])
     @transaction = @stock.transactions.new(transaction_params)
+    @transaction.user = current_user
     if @transaction.save
       flash[:notice] = "The transaction has been added."
       redirect_to stock_path(@stock)
@@ -41,7 +42,12 @@ class TransactionsController < ApplicationController
 
 private
   def transaction_params
-    params.require(:transaction).permit(:trade_type, :price, :quantity, :date)
+    params.require(:transaction).permit(
+      :date,
+      :price,
+      :quantity,
+      :trade_type
+    )
   end
 
 end

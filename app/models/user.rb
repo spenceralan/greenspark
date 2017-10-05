@@ -7,6 +7,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :stocks, dependent: :destroy
+  has_many :transactions
 
   after_initialize :init
 

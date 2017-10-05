@@ -4,6 +4,7 @@ class Transaction < ApplicationRecord
   enum trade_type: TRANSACTION_TYPES
 
   belongs_to :stock
+  belongs_to :user
 
   before_save :update_total
 
@@ -26,6 +27,6 @@ private
   def quantity_exceeds_available
     return unless trade_type == "sell"
 
-    errors.add(:quantity, "cannot exceed number of stocks owned — #{stock.quantity} #{"stock".pluralize(stock.quantity)} currently available") if quantity > stock.quantity
+    errors.add(:quantity, "cannot exceed number of stocks owned - #{stock.quantity} #{"stock".pluralize(stock.quantity)} currently available") if quantity > stock.quantity
   end
 end
