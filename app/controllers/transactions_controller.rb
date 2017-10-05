@@ -34,7 +34,7 @@ class TransactionsController < ApplicationController
 
   def destroy
     stock = current_user.stocks.find(params[:stock_id])
-    @stock.transactions.find(params[:id]).destroy
+    stock.transactions.find(params[:id]).destroy
     flash[:notice] = "The transaction was sucessfully deleted."
     redirect_to stock_path(stock)
   end
