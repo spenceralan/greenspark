@@ -15,15 +15,16 @@
 
   .stock-box {
     color: #333;
-    margin: 20px;
-    flex-basis: 90%;
+    margin: 8%;
+    flex-basis: 84%;
     white-space: nowrap;
   }
 
   @media only screen
     and (min-width: 430px) {
     .stock-box {
-      flex-basis: 40%;
+      margin: 2.5%;
+      flex-basis: 45%;
     }
   }
 
