@@ -5,7 +5,7 @@ class StocksController < ApplicationController
 
   def show
     @stock = current_user.stocks.find(params[:id])
-    @transactions = @stock.transactions_by_date_descending
+    @transactions = @stock.transactions_by_date_descending.page params[:page]
   end
 
   def new

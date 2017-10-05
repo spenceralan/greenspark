@@ -40,3 +40,12 @@ body {
 .well {
   background-color: #eeeeee;
 }
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: #00cc66 !important;
+  border-color: #00cc66 !important;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: #333 !important;
+}

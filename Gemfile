@@ -38,6 +38,7 @@ gem 'devise'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'kaminari'
 gem 'rest-client'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
