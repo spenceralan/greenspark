@@ -3,7 +3,9 @@ class Ticker < ApplicationRecord
   has_many :closing_prices
 
   before_save :upcase_symbol
-  after_create :save_historical_data
+
+  # re-enable with bigger database
+  # after_create :save_historical_data
 
   validate :validate_symbol
 
