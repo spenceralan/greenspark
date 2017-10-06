@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :closing_price do
+    
+  end
   factory :ticker do
     
   end

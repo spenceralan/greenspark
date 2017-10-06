@@ -87,7 +87,7 @@ private
       {
         name: "First Trust NASDAQ Clean Edge Green Energy Index Fund",
         symbol: "QCLN",
-        description: "The investment seeks investment results that correspond generally to the price and yield (before the fund's fees and expenses) of an equity index called the NASDAQ® Clean Edge® Green Energy IndexSM. The fund will normally invest at least 90% of its net assets (including investment borrowings) in common stocks that comprise the index. The index is a modified market capitalization-weighted index in which larger companies receive a larger index weighting and includes caps to prevent high concentrations among larger alternative energy stocks. It is non-diversified.",
+        description: "The investment seeks investment results that correspond generally to the price and yield (before the fund's fees and expenses) of an equity index called the NASDAQ Clean Edge Green Energy IndexSM. The fund will normally invest at least 90% of its net assets (including investment borrowings) in common stocks that comprise the index. The index is a modified market capitalization-weighted index in which larger companies receive a larger index weighting and includes caps to prevent high concentrations among larger alternative energy stocks. It is non-diversified.",
         exchange: "NASDAQ",
       },
       {
