@@ -46,6 +46,28 @@ class User < ApplicationRecord
     end
   end
 
+  def portfolio_value
+    value = 0
+    stocks.each do |stock|
+      value += stock.value
+    end
+    value
+  end
+
+  def portfolio_cost
+    cost = 0
+    stocks.each do |stock|
+      cost += stock.cost
+    end
+    cost
+  end
+
+  def portfolio_change
+    return 0 if portfolio_cost == 0
+    percent = ((portfolio_value - portfolio_cost) / portfolio_cost) * 100
+    percent.round(2)
+  end
+
 private
 
   def init

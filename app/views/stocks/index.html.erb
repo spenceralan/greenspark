@@ -15,8 +15,12 @@
     </div>
 
     <hr>
-
-    <h2>Your Portfolio</h2>
+    <div class="well">
+      <h2>Your Portfolio</h2>
+      <h4>How Much You Spent: <%= number_to_currency(current_user.portfolio_cost) %></h4>
+      <h4>How Much It's Worth: <%= number_to_currency(current_user.portfolio_value) %></h4>
+      <h4>Change: <%= current_user.portfolio_change %>%</h4>
+    </div>
     <br>
     <%= link_to "Add Stock", new_stock_path, class: "btn btn-default" %>
     <br>
