@@ -10,9 +10,11 @@ class Ticker < ApplicationRecord
   validate :validate_symbol
 
   def update_price
-    response = last_price_api_call
+    api_call = AlphaVantage.new(self)
+    response = api_call.last_price
     self.last_updated_price = latest_price(response)
     self.last_updated_time = DateTime.now
+    save!
   end
 
   def closing_price(date)
