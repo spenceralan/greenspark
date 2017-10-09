@@ -13,7 +13,7 @@ class Ticker < ApplicationRecord
     api_call = AlphaVantage.new(self)
     response = api_call.last_price
     self.last_updated_price = latest_price(response)
-    self.last_updated_time = DateTime.now
+    self.last_updated_time = latest_time(response)
     save!
   end
 
@@ -52,7 +52,7 @@ private
 
     if valid_symbol?(response)
       self.last_updated_price = latest_price(response)
-      self.last_updated_time = DateTime.now
+      self.last_updated_time = latest_time(response)
     else
       errors.add(:symbol, :invalid)
     end
@@ -60,6 +60,10 @@ private
 
   def latest_price(response)
     response.fetch("Time Series (1min)").first[1].fetch("4. close")
+  end
+
+  def latest_time(response)
+    response.fetch("Time Series (1min)").first[0]
   end
 
   def valid_symbol?(response)
