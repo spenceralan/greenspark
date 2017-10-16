@@ -59,8 +59,8 @@ save_path = Rails.root.join("tmp", "user_performance#{time}.csv")
 CSV.open(save_path, "wb") do |csv|
   csv << ["username", "frequency", "incremental", "budget", "amount_spent", "percent_change"]
   [7,14,21,28].each do |frequency|
-    [50,100,500,1000].each do |budget|
-      [budget / 2, budget, budget * 2].each do |incremental|
+    [100].each do |budget|
+      [budget].each do |incremental|
         user = create_test_user(budget, date, frequency, incremental)
         csv << [user.username, frequency, user.incremental, budget, user.portfolio_cost, user.portfolio_change]
       end
