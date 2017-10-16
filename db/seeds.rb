@@ -8,15 +8,9 @@
 
 
 
-def create_test_user(budget, start_date, frequency)
+def create_test_user(budget, start_date, frequency, incremental)
 
   User.find_by(username: "testuser#{budget}#{frequency}")&.destroy
-
-  if budget > 100
-    incremental = budget
-  else
-    incremental = 100
-  end
 
   user = User.create(
     username: "testuser#{budget}#{frequency}",
@@ -54,11 +48,22 @@ def create_test_user(budget, start_date, frequency)
     date += frequency
   end
 
+  user
 end
 
 date = Date.new(2012,1,4)
 
-create_test_user(50, date, 14)
-create_test_user(100, date, 7)
-create_test_user(500, date, 28)
-create_test_user(1000, date, 28)
+time = Time.now.strftime("%Y%m%d%H%M%S")
+save_path = Rails.root.join("tmp", "user_performance#{time}.csv")
+
+CSV.open(save_path, "wb") do |csv|
+  csv << ["username", "frequency", "incremental", "budget", "amount_spent", "percent_change"]
+  [7,14,21,28].each do |frequency|
+    [50,100,500,1000].each do |budget|
+      [budget / 2, budget, budget * 2].each do |incremental|
+        user = create_test_user(budget, date, frequency, incremental)
+        csv << [user.username, frequency, user.incremental, budget, user.portfolio_cost, user.portfolio_change]
+      end
+    end
+  end
+end
