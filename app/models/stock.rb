@@ -12,23 +12,23 @@ class Stock < ApplicationRecord
     presence: true
 
   def bought
-    transactions.where(trade_type: "buy")
+    @transactions ||= transactions.where(trade_type: "buy")
   end
 
   def sold
-    transactions.where(trade_type: "sell")
+    @sold ||= transactions.where(trade_type: "sell")
   end
 
   def cost
-    bought.sum(:total) - sold.sum(:total)
+    @cost ||= bought.sum(:total) - sold.sum(:total)
   end
 
   def quantity
-    bought.sum(:quantity) - sold.sum(:quantity)
+    @quantity ||= bought.sum(:quantity) - sold.sum(:quantity)
   end
 
   def value
-    quantity * ticker.last_updated_price
+    @value ||= quantity * ticker.last_updated_price
   end
 
   def change
