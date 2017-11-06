@@ -9,7 +9,7 @@
 
 <% else %>
 
-  <% @stocks_to_buy.stocks_within_budget.each do | stock | %>
+  <% @stocks_to_buy.stocks_to_purchase.each do | stock | %>
     <h3><%= "#{stock.fetch(:stock).symbol} ● #{stock.fetch(:stock).name}" %></h3>
     <h4><%= stock.fetch(:quantity) %> @ <%= number_to_currency(stock.fetch(:stock).ticker.last_updated_price) %><h4>
   <% end %>
