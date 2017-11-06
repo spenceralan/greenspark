@@ -30,7 +30,7 @@ class Algorithm
   end
 
   def change_goal
-    self.goal += user.incremental
+    self.goal += budget * 0.1
     change_goal if increase_goal?
   end
 
@@ -51,7 +51,8 @@ class Algorithm
     sorted_stocks.each do | stock |
       value = stock.value
       how_many_to_buy = {stock: stock, quantity: 0}
-      while how_many_to_buy[:stock].ticker.last_updated_price < user_budget && value < goal
+      stock_price = how_many_to_buy[:stock].ticker.last_updated_price 
+      while (stock_price < user_budget) && (value < goal)
         user_budget -= stock.ticker.last_updated_price
         value += stock.ticker.last_updated_price
         how_many_to_buy[:quantity] += 1
@@ -59,6 +60,15 @@ class Algorithm
       stocks_to_purchase.push(how_many_to_buy) if how_many_to_buy[:quantity] > 0
     end
     self.total = budget - user_budget
+    stocks_to_purchase
+  end
+
+  def stocks_to_purchase
+    stocks_to_purchase = stocks_within_budget
+    while total * 1.1 < budget
+      change_goal
+      stocks_to_purchase = stocks_within_budget
+    end
     stocks_to_purchase
   end
 
