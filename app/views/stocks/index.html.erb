@@ -27,14 +27,49 @@
 
     <div class="stock-link">
       <% @stocks.each do |stock| %>
-        <div class="stock-box well">
-          <%= link_to stock_path(stock) do %>
-            <h4><%= "#{stock.symbol} ● #{number_to_currency(stock.ticker.last_updated_price)}" %></h4>
-            <h5>Value: <%= number_to_currency(stock.value) %></h5>
-            <h5>Quantity: <%= stock.quantity %></h5>
-            <h5>Cost: <%= number_to_currency(stock.cost) %></h5>
-            <h5>Change: <%= stock.change %>%</h5>
-          <% end %>
+        <div class="stock-box">
+          <div class="front well">
+            <%= link_to stock_path(stock) do %>
+              <h4><%= "#{stock.symbol} ● #{number_to_currency(stock.ticker.last_updated_price)}" %></h4>
+              <h5>Value: <%= number_to_currency(stock.value) %></h5>
+              <h5>Quantity: <%= stock.quantity %></h5>
+              <h5>Cost: <%= number_to_currency(stock.cost) %></h5>
+              <h5>Change: <%= stock.change %>%</h5>
+            <% end %>
+            <button class="btn btn-default flip-button">Transact</button>
+          </div>
+          <div class="back well">
+          <div class=row>
+            <div class="col-xs-6">
+              <%= form_for [stock, stock.transactions.new ] do |f| %>
+                <div class="form-group">
+                  <%= f.label :price %>
+                  <%= f.text_field :price, value: format_number(stock.transactions.new.default_price), class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :quantity %>
+                  <%= f.number_field :quantity, class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <%= f.label :trade_type %>
+                  <%= f.select :trade_type, transaction_select_options(Transaction::TRANSACTION_TYPES.keys), {}, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :date %>
+                  <%= f.date_field :date, value: current_date, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <%= f.submit class: "btn btn-default index-transaction-button" %>
+
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

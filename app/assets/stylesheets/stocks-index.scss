@@ -8,6 +8,10 @@
     color: #333;
   }
 
+  .index-transaction-button {
+    width: 100%;
+  }
+
   .stock-link {
     display: flex;
     flex-wrap: wrap;
@@ -15,9 +19,20 @@
 
   .stock-box {
     color: #333;
-    margin: 8%;
-    flex-basis: 84%;
+    // margin: 8%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    flex-basis: 100%;
     white-space: nowrap;
+    // height is defined by the size of the taller well
+    // height: 179px;
+    
+    .front, .back {
+      width: 100%;
+      &.well {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .well {
@@ -25,7 +40,7 @@
   }
 
   @media only screen
-    and (min-width: 430px) {
+    and (min-width: 992px) {
     .stock-box {
       margin: 2.5%;
       flex-basis: 45%;
