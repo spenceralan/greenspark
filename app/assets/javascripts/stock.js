@@ -6,4 +6,8 @@ $(document).ready(function(){
   $(".flip-button").click(function(){
     $(this).closest(".stock-box").flip("toggle");
   });
+
+  $(".glyphicon-chevron-left").click(function(){
+    $(this).closest(".stock-box").flip("toggle");
+  });
 });

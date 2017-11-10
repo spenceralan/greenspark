@@ -4,6 +4,20 @@
     text-decoration: none;
   }
 
+  .well {
+    position: relative;
+  }
+
+  .glyphicon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+
+  .glyphicon-chevron-left:hover {
+    cursor: pointer;
+  }
+
   .btn-default {
     color: #333;
   }
