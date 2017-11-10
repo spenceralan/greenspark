@@ -12,7 +12,7 @@ class Stock < ApplicationRecord
     presence: true
 
   def bought
-    @transactions ||= transactions.where(trade_type: "buy")
+    @bought ||= transactions.where(trade_type: "buy")
   end
 
   def sold
@@ -20,7 +20,7 @@ class Stock < ApplicationRecord
   end
 
   def cost
-    @cost ||= bought.sum(:total) - sold.sum(:total)
+    @cost ||= bought.sum(:total)
   end
 
   def quantity
