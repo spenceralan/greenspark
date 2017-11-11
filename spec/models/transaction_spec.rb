@@ -12,5 +12,5 @@ describe Transaction do
   it { should validate_numericality_of(:quantity).only_integer }
   it { should validate_numericality_of(:quantity).is_greater_than(0) }
 
-  it { should validate_inclusion_of(:trade_type).in_array(Transaction::TRANSACTION_TYPES) }
+  it { should define_enum_for(:trade_type).with(Transaction::TRANSACTION_TYPES.keys) }
 end

@@ -71,6 +71,7 @@ private
   end
 
   def upcase_symbol
+    return if symbol.nil?
     self.symbol = symbol.upcase
   end
 

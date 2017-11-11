@@ -25,6 +25,7 @@ class Transaction < ApplicationRecord
 private
 
   def quantity_exceeds_available
+    return if stock.nil?
     return unless trade_type == "sell"
 
     errors.add(:quantity, "cannot exceed number of stocks owned - #{stock.quantity} #{"stock".pluralize(stock.quantity)} currently available") if quantity > stock.quantity
