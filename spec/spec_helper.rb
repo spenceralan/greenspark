@@ -17,6 +17,9 @@
 require 'support/simple_cov'
 require 'webmock/rspec'
 require 'support/alpha_vantage'
+require 'capybara/rspec'
+require 'devise'
+require 'support/devise'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
