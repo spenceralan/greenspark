@@ -27,13 +27,12 @@ def create_test_user(budget, start_date, frequency, incremental)
       closing_price = stock.ticker.closing_price(date)
       if closing_price.present?
         stock.ticker.update_attribute(:last_updated_price, closing_price.first.price)
-  
       end
     end
   
-    stocks_to_buy = Algorithm.new(user, budget)
+    algorithm = Algorithm.new(user, budget)
   
-    stocks_to_buy.stocks_within_budget.each do |stock|
+    algorithm.stocks_to_purchase.each do |stock|
       quantity = stock.fetch(:quantity)
       stock = stock.fetch(:stock)
       stock.transactions.create!(
