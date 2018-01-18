@@ -8,6 +8,9 @@ class Ticker < ApplicationRecord
   def update_price
     api_call = IexTrading.new(self)
     response = api_call.last_price
+
+    return unless valid_symbol?(response)
+
     self.last_updated_price = latest_price(response)
     self.last_updated_time = latest_time(response)
     save!
@@ -28,12 +31,10 @@ private
   end
 
   def latest_price(response)
-    return nil unless valid_symbol?(response)
     response.fetch("latestPrice")
   end
 
   def latest_time(response)
-    return nil unless valid_symbol?(response)
     response.fetch("latestTime")
   end
 
