@@ -28,10 +28,18 @@ private
   end
 
   def latest_price(response)
+    unless valid_symbol?(response)
+      raise "#{symbol} is invalid"
+      return nil
+    end
     response.fetch("latestPrice")
   end
 
   def latest_time(response)
+    unless valid_symbol?(response)
+      raise "#{symbol} is invalid"
+      return nil
+    end
     response.fetch("latestTime")
   end
 
